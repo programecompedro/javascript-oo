@@ -20,7 +20,7 @@ conta3.cliente = cliente1;
 conta3.agencia = 3030;
 conta3.depositar(400)
 conta3.transferir(100, conta2)
-console.log(conta2)
+console.log(conta3.saldo)
 
 
 
