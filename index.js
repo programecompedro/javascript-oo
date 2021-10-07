@@ -9,11 +9,11 @@ const conta1 = new ContaCorrente(4000,cliente1)
 const conta2 = new ContaCorrente(4000,cliente2)
 const conta3 = new ContaCorrente(5454,cliente3)
 
-console.log(conta1)
-console.log(conta2)
-console.log(conta3)
+console.log(conta1) //Exibe dados da conta
+console.log(conta2) //Exibe dados da conta
+console.log(conta3) //Exibe dados da conta
 
-console.log(ContaCorrente.numeroDeContas)
+console.log(ContaCorrente.numeroDeContas) //3
 
 
 
