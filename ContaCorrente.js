@@ -1,7 +1,9 @@
 export class ContaCorrente {
-    agencia;
     _saldo = 0;
-    
+
+    agencia;
+    cliente;
+
     depositar(valor){
         if (valor > 0) {   
             this._saldo += valor         
@@ -19,6 +21,16 @@ export class ContaCorrente {
             console.log("Você sacou: ", valor)
             console.log("Saldo Atual: ", this._saldo)
             return valor
+        }
+    }
+
+    transferir(valor, conta){
+        if (valor < 1){
+            return console.log("Não pode transferir um valor menor que 1 real")
+        }else {
+            const valorSacado = this.sacar(valor);
+            conta.depositar(valorSacado)
+            return conta
         }
     }
 }
