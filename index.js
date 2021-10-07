@@ -24,7 +24,7 @@ class ContaCorrente {
             this._saldo -= valor
             console.log("Você sacou: ", valor)
             console.log("Saldo Atual: ", this._saldo)
-            return this._saldo
+            return valor
         }
     }
 }
@@ -44,6 +44,7 @@ const contaCorrentePedro = new ContaCorrente()
 contaCorrentePedro.agencia = 0001;
 
 contaCorrentePedro.depositar(500);
-contaCorrentePedro.sacar(233);
+let valorsacado = contaCorrentePedro.sacar(233);
 
+console.log(valorsacado)
 console.log(contaCorrentePedro)
