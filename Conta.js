@@ -1,9 +1,13 @@
-export class Conta {
+export class Conta { // Classe Abstrata só serve para ser herdada e nunca chamada
     constructor(SaldoInicial, Cliente, Agencia){
 
         this._saldo = SaldoInicial;
         this._cliente = Cliente;
         this._agencia = Agencia;
+
+        if (this.constructor == Conta){
+            throw new Error("Você não deveria instancer um objeto do tipo Conta")
+        }
     }
 
     set cliente(cliente){
@@ -22,25 +26,37 @@ export class Conta {
 
     
     depositar(valor){
-        if (valor > 0) {   
+        if (valor > 0) {
             this._saldo += valor         
-            console.log("Você depositou: ", this._saldo)
+            console.log("Você depositou: ", valor)
+            console.log("Saldo atual: ", this._saldo)
+            
+            
             return this._saldo
+
         } else {
             console.log("Você não pode depositar valores negativos")
         }
     }
     sacar(valor) {
-
         let taxa = 1
-        if (this._saldo < valor){
-            return console.log("Não pode sacar um valor maior que seu _saldo")
-        } else {
-            this._saldo -= valor
-            console.log("Você sacou: ", valor)
+        return this._sacar(valor, taxa);
+    }
+
+    _sacar(valor, taxa) {
+        if (this._saldo > valor){           
+            const valorSacado = taxa * valor
+            this._saldo -= valorSacado.toFixed(2)
+            console.log("Você sacou: ", valorSacado.toFixed(2))
             console.log("Saldo Atual: ", this._saldo)
-            return valor
+
+            return valorSacado.toFixed(2)
+        } else {
+            console.log("Não pode sacar um valor maior que seu _saldo")
+            return 0
         }
+
+        
     }
 
     transferir(valor, conta){
