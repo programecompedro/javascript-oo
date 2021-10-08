@@ -6,7 +6,7 @@ export class Conta { // Classe Abstrata só serve para ser herdada e nunca chama
         this._agencia = Agencia;
 
         if (this.constructor == Conta){
-            throw new Error("Você não deveria instancer um objeto do tipo Conta")
+            throw new Error("Você não deveria instancer um objeto do tipo Conta Diretamente\n É uma classe Abstrata")
         }
     }
 
