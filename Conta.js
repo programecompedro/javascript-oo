@@ -38,9 +38,10 @@ export class Conta { // Classe Abstrata só serve para ser herdada e nunca chama
             console.log("Você não pode depositar valores negativos")
         }
     }
+
+    //Método Abstrato
     sacar(valor) {
-        let taxa = 1
-        return this._sacar(valor, taxa);
+        throw new Error("O método Sacar() da conta é abstrato!")
     }
 
     _sacar(valor, taxa) {
